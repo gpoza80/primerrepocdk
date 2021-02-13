@@ -31,5 +31,11 @@ pipeline {
       }
     }
 
+    stage('Run_Container') {
+      steps {
+        sh 'docker run --name proyectoApi -itd --rm -p 3001:3001 apache-cmdtest'
+      }
+    }
+
   }
 }
