@@ -25,5 +25,18 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        sh 'cat versionImage | xargs ./scripts/build.sh'
+      }
+    }
+
+    stage('Run_Container') {
+      steps {
+        sh 'docker run --name proyectoApi -itd  -p 3001:3001 apache-centostest:3.1'
+        sh 'docker ps'
+      }
+    }
+
   }
 }
