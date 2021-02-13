@@ -33,7 +33,7 @@ pipeline {
 
     stage('Run_Container') {
       steps {
-        sh 'docker run --name proyectoApi -itd  -p 3001:3001 apache-centostest:3.1'
+        sh 'docker stop proyectoApi || true; docker rm proyectoApi || true; docker run --name proyectoApi -itd  -p 3001:3001 apache-centostest:3.1'
         sh 'docker ps'
       }
     }
